@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="local-store.js"></script>
+  </head>
+  <body>
+    <input id="user-login" type="text" onfocusout="username()"></input>
+    <input id="pass-login" type="password" onfocusout="password()"></input>
+    <button id="login-btn" onclick="login()">Login</button>
+    <button id="logout-btn" onclick="logout()" disabled>Logout</button>
+    <button id="register-btn" onclick="register()">Register</button>
+    <button onclick="reset()">Delete all users</button>
+    <button onclick="show_users()">Show Users</button>
+    <div id="all-users"></div>
+    <div id="error-check"></div>
+  </body>
+</html>
