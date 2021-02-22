@@ -1,6 +1,7 @@
 var user_id = 0; //positive counter
 var pass_id = 0; //negative counter
 var logged_in = 0;
+var maximum = 10000;
 
 function register()
 {
@@ -13,17 +14,17 @@ function register()
     user_id++;
     pass_id--;
 
-    for (user_id = 1; user_id <= 10000; user_id++)
+    for (user_id = 1; user_id <= maximum; user_id++)
     {
       if (localStorage.getItem(user_id) == null)
       {
-        for (var x = 1; x < 10000; x++)
+        for (var x = 1; x < maximum; x++)
         {
           if (i == localStorage.getItem(x))
           {
             document.getElementById("error-check").innerHTML = "Username already exist";
-            x = 10000;
-            user_id = 10000;
+            x = maximum;
+            user_id = maximum;
             user_exist = 1;
           }
         }
@@ -33,7 +34,7 @@ function register()
           pass_id = user_id - user_id - user_id;
           localStorage.setItem(user_id, i);
           localStorage.setItem(pass_id, j);
-          user_id = 10000;
+          user_id = maximum;
           document.getElementById("user-login").value = "";
           document.getElementById("pass-login").value = "";
         }
@@ -49,7 +50,7 @@ function login()
 
   if (logged_in == 0)
   {
-    for (var x = 1; x <= 10000; x++)
+    for (var x = 1; x <= maximum; x++)
     {
       if (i == localStorage.getItem(x))
       {
@@ -67,7 +68,7 @@ function login()
         {
           document.getElementById("error-check").innerHTML = "Wrong password";
         }
-        x = 10000;
+        x = maximum;
       }
       else
       {
@@ -92,7 +93,7 @@ function logout()
 function show_users()
 {
   document.getElementById("all-users").innerHTML = "";
-  for (var x = 1; x <= 10000; x++)
+  for (var x = 1; x <= maximum; x++)
   {
     if (localStorage.getItem(x) != null)
     {
